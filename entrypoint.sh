@@ -20,20 +20,20 @@ ${PREFIX:-URL_}DATABASE='\9'#")"
 }
 
 # Parse the DATABASE_URL and extract components
-PREFIX="N8N_DB_" parse_url "$DATABASE_URL"
-echo "$N8N_DB_SCHEME://$N8N_DB_USER:$N8N_DB_PASSWORD@$N8N_DB_HOSTPORT/$N8N_DB_DATABASE"
+#PREFIX="N8N_DB_" parse_url "$DATABASE_URL"
+#echo "$N8N_DB_SCHEME://$N8N_DB_USER:$N8N_DB_PASSWORD@$N8N_DB_HOSTPORT/$N8N_DB_DATABASE"
 
 # Separate host and port
-N8N_DB_HOST="$(echo "$N8N_DB_HOSTPORT" | sed -E 's,:.*,,')"
-N8N_DB_PORT="$(echo "$N8N_DB_HOSTPORT" | sed -E 's,.*:([0-9]+).*,\1,')"
+#N8N_DB_HOST="$(echo "$N8N_DB_HOSTPORT" | sed -E 's,:.*,,')"
+#N8N_DB_PORT="$(echo "$N8N_DB_HOSTPORT" | sed -E 's,.*:([0-9]+).*,\1,')"
 
 # Export database environment variables
-export DB_TYPE="postgresdb"
-export DB_POSTGRESDB_HOST="$N8N_DB_HOST"
-export DB_POSTGRESDB_PORT="$N8N_DB_PORT"
-export DB_POSTGRESDB_DATABASE="$N8N_DB_DATABASE"
-export DB_POSTGRESDB_USER="$N8N_DB_USER"
-export DB_POSTGRESDB_PASSWORD="$N8N_DB_PASSWORD"
+#export DB_TYPE="postgresdb"
+#export DB_POSTGRESDB_HOST="$N8N_DB_HOST"
+#export DB_POSTGRESDB_PORT="$N8N_DB_PORT"
+#export DB_POSTGRESDB_DATABASE="$N8N_DB_DATABASE"
+#export DB_POSTGRESDB_USER="$N8N_DB_USER"
+#export DB_POSTGRESDB_PASSWORD="$N8N_DB_PASSWORD"
 
 if [ -d /opt/custom-certificates ]; then
   echo "Trusting custom certificates from /opt/custom-certificates."
